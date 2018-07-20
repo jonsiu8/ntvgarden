@@ -4,10 +4,10 @@ import styled from "styled-components";
 import logo from "./logo.svg"
 
 const Logo = styled.img`
-  width: 105px;
+  width: 110px;
   margin-bottom: 0;
 
-  @media (max-width: 1023px) {
+  @media (max-width: 767px) {
     width: 70px;
   }
 `;

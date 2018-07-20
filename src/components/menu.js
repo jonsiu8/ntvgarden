@@ -14,7 +14,7 @@ const Menu = () =>(
         <a style={{marginLeft:'20px'}}><Link to="/" >Home</Link></a>
         <a style={{marginLeft:'20px'}}><Link to="/gallery">Gallery</Link></a>
         <a style={{marginLeft:'20px'}}><Link to="/services">Services</Link></a>
-        <a style={{marginLeft:'20px'}}><Link to="/" >Contact</Link></a>
+        <a style={{marginLeft:'20px'}}><Link to="/contact" >Contact</Link></a>
 
     </div>
 )
