@@ -1,13 +1,16 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import styled from "styled-components";
-import sectionBannerBg from "./img-homepage.jpg"
+//import sectionBannerBg from "./img-homepage.jpg"
+import Img from 'gatsby-image'
+import Helmet from 'react-helmet'
+import get from 'lodash/get'
 
 const BannerContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  background-color: #e0b02e;
+  background-color: #1a492b;
 
   @media (max-width: 768px) {
     display: block;
@@ -70,7 +73,7 @@ const BigButton = styled(Link)`
   }
 `;
 
-const IndexPage = () => (
+/*const IndexPage = () => (
   <div>
     <BannerContainer style={{backgroundImage:`url(` + sectionBannerBg + `)`,backgroundSize:`cover`,backgroundPosition:`center`}}>
       <HeroBanner>
@@ -80,6 +83,42 @@ const IndexPage = () => (
       </HeroBanner>
     </BannerContainer>
   </div>
-)
+)*/
+class IndexPage extends React.Component {
+  render() {
+    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
+    
+
+    return (
+      <div>
+        <Helmet title={siteTitle} />  
+        <Img sizes={this.props.data.imageOne.sizes} />
+        <BannerContainer style={{backgroundImage: `sizes`,backgroundSize:`cover`,backgroundPosition:`center`}}>
+          <HeroBanner>
+            <HeroBannerTitle>Welcome to NTV Garden</HeroBannerTitle>
+            <HeroBannerParag> for all your landscaping needs</HeroBannerParag>
+            <BigButton to="/gallery">Learn More</BigButton>
+          </HeroBanner>
+      </BannerContainer>
+      </div>
+    )
+  }
+}
+
 
 export default IndexPage
+
+export const pageQuery = graphql`
+  query IndexQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    imageOne: imageSharp(id: { regex: "/img-homepage.jpg/" }) {
+      sizes(maxWidth: 1920) {
+        ...GatsbyImageSharpSizes
+      }
+    }
+  }
+`
