@@ -1,44 +1,137 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import '../assets/scss/main.scss'
 import Helmet from 'react-helmet'
-import Header from '../components/header'
-import Menu from '../components/menu'
-import './index.css'
 
-const Layout = ({ children, data }) => (
-  <div>
-    <Helmet
-      title={data.site.siteMetadata.title}
-      meta={[
-        { name: 'description', content: 'This is NTV Garden' },
-        { name: 'keywords', content: 'NTV, Garden' },
-      ]}
-    />
-    <Header siteTitle={data.site.siteMetadata.title} />
-    <Menu/>
-    <div
-      style={{
-        margin: '0',
-        maxWidth: '100%',
-        padding: '0px',
-      }}
-    >
-      {children()}
-    </div>
-  </div>
-)
+import Header from '../components/Header'
+import Main from '../components/Main'
+import Footer from '../components/Footer'
 
-Layout.propTypes = {
-  children: PropTypes.func,
+class Template extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isArticleVisible: false,
+      timeout: false,
+      articleTimeout: false,
+      article: '',
+      loading: 'is-loading'
+    }
+    this.handleOpenArticle = this.handleOpenArticle.bind(this)
+    this.handleCloseArticle = this.handleCloseArticle.bind(this)
+  }
+
+  componentDidMount () {
+    this.timeoutId = setTimeout(() => {
+        this.setState({loading: ''});
+    }, 100);
+  }
+
+  componentWillUnmount () {
+    if (this.timeoutId) {
+        clearTimeout(this.timeoutId);
+    }
+  }
+
+  handleOpenArticle(article) {
+
+    this.setState({
+      isArticleVisible: !this.state.isArticleVisible,
+      article
+    })
+
+    setTimeout(() => {
+      this.setState({
+        timeout: !this.state.timeout
+      })
+    }, 325)
+
+    setTimeout(() => {
+      this.setState({
+        articleTimeout: !this.state.articleTimeout
+      })
+    }, 350)
+
+  }
+
+  handleCloseArticle() {
+
+    this.setState({
+      articleTimeout: !this.state.articleTimeout
+    })
+
+    setTimeout(() => {
+      this.setState({
+        timeout: !this.state.timeout
+      })
+    }, 325)
+
+    setTimeout(() => {
+      this.setState({
+        isArticleVisible: !this.state.isArticleVisible,
+        article: ''
+      })
+    }, 350)
+
+  }
+
+  render() {
+    const siteTitle = this.props.data.site.siteMetadata.title
+    const siteDescription = this.props.data.site.siteMetadata.description
+    const { location, children } = this.props
+
+    let rootPath = `/`
+
+    let content;
+
+    if (location.pathname === rootPath) {
+      content = (
+        <div id="wrapper">
+          <Header onOpenArticle={this.handleOpenArticle} timeout={this.state.timeout} />
+          <Main
+            isArticleVisible={this.state.isArticleVisible}
+            timeout={this.state.timeout}
+            articleTimeout={this.state.articleTimeout}
+            article={this.state.article}
+            onCloseArticle={this.handleCloseArticle}
+          />
+          <Footer timeout={this.state.timeout} />
+        </div>
+      )
+    } else {
+      content = (
+        <div id="wrapper" className="page">
+          <div style={{
+            maxWidth: '1140px'
+          }}>
+            {children()}
+          </div>
+        </div>
+      )
+    }
+
+    return (
+      <div className={`body ${this.state.loading} ${this.state.isArticleVisible ? 'is-article-visible' : ''}`}>
+        <Helmet>
+            <title>{siteTitle}</title>
+            <meta name="description" content={siteDescription} />
+        </Helmet>
+
+        {content}
+
+        <div id="bg"></div>
+      </div>
+    )
+  }
 }
 
-export default Layout
+export default Template
 
-export const query = graphql`
-  query SiteTitleQuery {
+export const pageQuery = graphql`
+  query PageQuery {
     site {
       siteMetadata {
         title
+        description
       }
     }
   }

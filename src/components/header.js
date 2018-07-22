@@ -1,26 +1,31 @@
 import React from 'react'
-import Link from 'gatsby-link'
-import styled from "styled-components";
-import logo from "./logo.svg"
 
-const Logo = styled.img`
-  width: 110px;
-  margin-bottom: 0;
-
-  @media (max-width: 767px) {
-    width: 70px;
-  }
-`;
-
-const Header = ({ siteTitle }) => (
-  <div style={{background: '#1a492b',margin: 'auto',}}>
-    <div style={{margin: 'auto',padding: '15px 50px'}}>
-       <Link to="/" style={{ textDecoration: `none`}}>
-          <Logo src={logo}/>
-       </Link>
-    </div>
-  </div>
-  
+const Header = (props) => (
+    <header id="header" style={props.timeout ? {display: 'none'} : {}}>
+        <div className="logo">
+            {/*<span className="icon fa-diamond"></span>*/}
+            <span className="icon fa-home"></span>
+        </div>
+        <div className="content">
+            <div className="inner">
+                <h1>NTV Garden</h1>
+                <p>FOR ALL YOUR LANDSCAPING NEEDS</p>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="javascript:;" onClick={() => {props.onOpenArticle('services')}}>Services</a></li>
+                <li><a href="javascript:;" onClick={() => {props.onOpenArticle('gallery')}}>Gallery</a></li>
+                <li><a href="javascript:;" onClick={() => {props.onOpenArticle('about')}}>About</a></li>
+                <li><a href="javascript:;" onClick={() => {props.onOpenArticle('contact')}}>Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 )
+
+Header.propTypes = {
+    onOpenArticle: React.PropTypes.func,
+    timeout: React.PropTypes.bool
+}
 
 export default Header
