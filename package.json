@@ -1,6 +1,6 @@
 {
-  "name": "gatsby-starter-dimension",
-  "description": "Gatsby Starter - Dimension by HTML5 UP",
+  "name": "gatsby-starter-forty",
+  "description": "Gatsby Starter - Forty by HTML5 UP",
   "version": "1.0.0",
   "author": "Hunter Chang",
   "dependencies": {
@@ -18,7 +18,7 @@
     "gatsby-transformer-sharp": "^1.6.22",
     "lodash": "^4.17.4"
   },
-  "homepage": "https://github.com/ChangoMan/gatsby-starter-dimension",
+  "homepage": "https://github.com/ChangoMan/gatsby-starter-forty",
   "keywords": [
     "gatsby"
   ],
@@ -26,7 +26,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ChangoMan/gatsby-starter-dimension.git"
+    "url": "https://github.com/ChangoMan/gatsby-starter-forty.git"
   },
   "scripts": {
     "dev": "gatsby develop",
@@ -34,7 +34,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "develop": "gatsby develop",
     "build": "gatsby build",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
   }
 }

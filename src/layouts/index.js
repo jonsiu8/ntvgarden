@@ -1,138 +1,63 @@
 import React from 'react'
-import '../assets/scss/main.scss'
 import Helmet from 'react-helmet'
-
+import { Link, withPrefix } from 'gatsby-link'
+import '../assets/scss/main.scss'
 import Header from '../components/Header'
-import Main from '../components/Main'
+import Menu from '../components/Menu'
+import Contact from '../components/Contact'
 import Footer from '../components/Footer'
 
 class Template extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      isArticleVisible: false,
-      timeout: false,
-      articleTimeout: false,
-      article: '',
-      loading: 'is-loading'
-    }
-    this.handleOpenArticle = this.handleOpenArticle.bind(this)
-    this.handleCloseArticle = this.handleCloseArticle.bind(this)
-  }
 
-  componentDidMount () {
-    this.timeoutId = setTimeout(() => {
-        this.setState({loading: ''});
-    }, 100);
-  }
-
-  componentWillUnmount () {
-    if (this.timeoutId) {
-        clearTimeout(this.timeoutId);
-    }
-  }
-
-  handleOpenArticle(article) {
-
-    this.setState({
-      isArticleVisible: !this.state.isArticleVisible,
-      article
-    })
-
-    setTimeout(() => {
-      this.setState({
-        timeout: !this.state.timeout
-      })
-    }, 325)
-
-    setTimeout(() => {
-      this.setState({
-        articleTimeout: !this.state.articleTimeout
-      })
-    }, 350)
-
-  }
-
-  handleCloseArticle() {
-
-    this.setState({
-      articleTimeout: !this.state.articleTimeout
-    })
-
-    setTimeout(() => {
-      this.setState({
-        timeout: !this.state.timeout
-      })
-    }, 325)
-
-    setTimeout(() => {
-      this.setState({
-        isArticleVisible: !this.state.isArticleVisible,
-        article: ''
-      })
-    }, 350)
-
-  }
-
-  render() {
-    const siteTitle = this.props.data.site.siteMetadata.title
-    const siteDescription = this.props.data.site.siteMetadata.description
-    const { location, children } = this.props
-
-    let rootPath = `/`
-
-    let content;
-
-    if (location.pathname === rootPath) {
-      content = (
-        <div id="wrapper">
-          <Header onOpenArticle={this.handleOpenArticle} timeout={this.state.timeout} />
-          <Main
-            isArticleVisible={this.state.isArticleVisible}
-            timeout={this.state.timeout}
-            articleTimeout={this.state.articleTimeout}
-            article={this.state.article}
-            onCloseArticle={this.handleCloseArticle}
-          />
-          <Footer timeout={this.state.timeout} />
-        </div>
-      )
-    } else {
-      content = (
-        <div id="wrapper" className="page">
-          <div style={{
-            maxWidth: '1140px'
-          }}>
-            {children()}
-          </div>
-        </div>
-      )
+    constructor(props) {
+        super(props)
+        this.state = {
+            isMenuVisible: false,
+            loading: 'is-loading'
+        }
+        this.handleToggleMenu = this.handleToggleMenu.bind(this)
     }
 
-    return (
-      <div className={`body ${this.state.loading} ${this.state.isArticleVisible ? 'is-article-visible' : ''}`}>
-        <Helmet>
-            <title>{siteTitle}</title>
-            <meta name="description" content={siteDescription} />
-        </Helmet>
+    componentDidMount () {
+        this.timeoutId = setTimeout(() => {
+            this.setState({loading: ''});
+        }, 100);
+    }
 
-        {content}
+    componentWillUnmount () {
+        if (this.timeoutId) {
+            clearTimeout(this.timeoutId);
+        }
+    }
 
-        <div id="bg"></div>
-      </div>
-    )
-  }
+    handleToggleMenu() {
+        this.setState({
+            isMenuVisible: !this.state.isMenuVisible
+        })
+    }
+
+    render() {
+        const { children } = this.props
+
+        return (
+            <div className={`body ${this.state.loading} ${this.state.isMenuVisible ? 'is-menu-visible' : ''}`}>
+                <Helmet>
+                    <link rel="stylesheet" href={withPrefix('skel.css')} />
+                </Helmet>
+                <div id="wrapper">
+                    <Header onToggleMenu={this.handleToggleMenu} />
+                    {children()}
+                    <Contact />
+                    {/*<Footer />*/}
+                </div>
+                <Menu onToggleMenu={this.handleToggleMenu} />
+            </div>
+        )
+    }
+}
+
+Template.propTypes = {
+    children: React.PropTypes.func
 }
 
 export default Template
-
-export const pageQuery = graphql`
-  query PageQuery {
-    site {
-      siteMetadata {
-        title
-        description
-      }
-    }
-  }
-`

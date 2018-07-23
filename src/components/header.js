@@ -1,31 +1,17 @@
 import React from 'react'
+import Link from 'gatsby-link'
 
 const Header = (props) => (
-    <header id="header" style={props.timeout ? {display: 'none'} : {}}>
-        <div className="logo">
-            {/*<span className="icon fa-diamond"></span>*/}
-            <span className="icon fa-home"></span>
-        </div>
-        <div className="content">
-            <div className="inner">
-                <h1>NTV Garden</h1>
-                <p>FOR ALL YOUR LANDSCAPING NEEDS</p>
-            </div>
-        </div>
+    <header id="header" className="alt">
+        <Link to="/" className="logo"><strong>NTV Garden</strong></Link>
         <nav>
-            <ul>
-                <li><a href="javascript:;" onClick={() => {props.onOpenArticle('services')}}>Services</a></li>
-                <li><a href="javascript:;" onClick={() => {props.onOpenArticle('gallery')}}>Gallery</a></li>
-                <li><a href="javascript:;" onClick={() => {props.onOpenArticle('about')}}>About</a></li>
-                <li><a href="javascript:;" onClick={() => {props.onOpenArticle('contact')}}>Contact</a></li>
-            </ul>
+            <a className="menu-link" onClick={props.onToggleMenu} href="javascript:;">Menu</a>
         </nav>
     </header>
 )
 
 Header.propTypes = {
-    onOpenArticle: React.PropTypes.func,
-    timeout: React.PropTypes.bool
+    onToggleMenu: React.PropTypes.func
 }
 
 export default Header
