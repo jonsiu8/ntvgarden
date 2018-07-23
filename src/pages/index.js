@@ -53,7 +53,7 @@ class HomeIndex extends React.Component {
                                 <h3>Contact</h3>
                                 <p>Contact us</p>
                             </header>
-                            <Link to="/about" className="link primary"></Link>
+                            <Link to="/contact" className="link primary"></Link>
                         </article>
                         {/*
                         <article style={{backgroundImage: `url(${pic05})`}}>
