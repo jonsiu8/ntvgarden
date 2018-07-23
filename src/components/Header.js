@@ -5,10 +5,10 @@ import logo from "./logo.svg"
 
 const Logo = styled.img`
   width: 105px;
-  margin-bottom: 0;
+  margin-top: 10px;
 
-  @media (max-width: 1023px) {
-    width: 70px;
+  @media (max-width: 736px) {
+    width: 75px;
   }
 `;
 
