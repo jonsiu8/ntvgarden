@@ -28,12 +28,13 @@
 			@include vendor('transition', 'opacity #{_duration(banner)} ease');
 			@include vendor('transition-delay', '0.75s');
 			@include vendor('pointer-events', 'none');
-			background-color: _palette(bg);
+			//background-color: _palette(bg);
+			background-color: #1a492b;
 			content: '';
 			display: block;
 			height: 100%;
 			left: 0;
-			opacity: 0.85;
+			opacity: 0.6;
 			position: absolute;
 			top: 0;
 			width: 100%;
