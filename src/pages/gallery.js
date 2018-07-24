@@ -19,23 +19,29 @@ const Elements = (props) => (
                     <header className="major">
                         <h1>Gallery</h1>
                     </header>                   
-                        <span className="image fit"><img src={pic03} alt="" /></span>
+                        {/*<span className="image fit"><img src={pic03} alt="" /></span>*/}
                         <div className="box alt">
-                            <div className="row 50% uniform">
+                            <h3>Residential</h3>
+                            <div className="row 50% uniform">                   
                                 <div className="4u"><span className="image fit"><img src={pic08} alt="" /></span></div>
                                 <div className="4u"><span className="image fit"><img src={pic09} alt="" /></span></div>
                                 <div className="4u"><span className="image fit"><img src={pic10} alt="" /></span></div>
                                 <div className="4u"><span className="image fit"><img src={pic10} alt="" /></span></div>
                                 <div className="4u"><span className="image fit"><img src={pic08} alt="" /></span></div>
-                                <div className="4u"><span className="image fit"><img src={pic09} alt="" /></span></div>
-                                <div className="4u"><span className="image fit"><img src={pic09} alt="" /></span></div>
-                                <div className="4u"><span className="image fit"><img src={pic10} alt="" /></span></div>
-                                <div className="4u"><span className="image fit"><img src={pic08} alt="" /></span></div>
+                                <div className="4u"><span className="image fit"><img src={pic09} alt="" /></span></div>                        
                             </div>
                         </div>
-                        <h4>Left &amp; Right</h4>
-                        <p><span className="image left"><img src={pic09} alt="" /></span>Lorem ipsum dolor sit accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget tempus vestibulum ante ipsum primis in faucibus magna blandit adipiscing eu felis iaculis.</p>
-                        <p><span className="image right"><img src={pic10} alt="" /></span>Lorem ipsum dolor sit accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget tempus vestibulum ante ipsum primis in faucibus magna blandit adipiscing eu felis iaculis.</p>
+                        <div className="box alt">
+                            <h3>Commercial</h3>
+                            <div className="row 50% uniform">                   
+                                <div className="4u"><span className="image fit"><img src={pic08} alt="" /></span></div>
+                                <div className="4u"><span className="image fit"><img src={pic09} alt="" /></span></div>
+                                <div className="4u"><span className="image fit"><img src={pic10} alt="" /></span></div>
+                                <div className="4u"><span className="image fit"><img src={pic10} alt="" /></span></div>
+                                <div className="4u"><span className="image fit"><img src={pic08} alt="" /></span></div>
+                                <div className="4u"><span className="image fit"><img src={pic09} alt="" /></span></div>                        
+                            </div>
+                        </div>
                 </div>
             </section>
         </div>
