@@ -23,23 +23,23 @@ const Elements = (props) => (
                         <div className="box alt">
                             <h3>Residential</h3>
                             <div className="row 50% uniform">                   
-                                <div className="4u"><span className="image fit"><img src={pic08} alt="" /></span></div>
-                                <div className="4u"><span className="image fit"><img src={pic09} alt="" /></span></div>
-                                <div className="4u"><span className="image fit"><img src={pic10} alt="" /></span></div>
-                                <div className="4u"><span className="image fit"><img src={pic10} alt="" /></span></div>
-                                <div className="4u"><span className="image fit"><img src={pic08} alt="" /></span></div>
-                                <div className="4u"><span className="image fit"><img src={pic09} alt="" /></span></div>                        
+                                <div className="6u"><span className="image fit"><img src={pic08} alt="" /></span></div>
+                                <div className="6u"><span className="image fit"><img src={pic09} alt="" /></span></div>
+                                <div className="6u"><span className="image fit"><img src={pic10} alt="" /></span></div>
+                                <div className="6u"><span className="image fit"><img src={pic10} alt="" /></span></div>
+                                <div className="6u"><span className="image fit"><img src={pic08} alt="" /></span></div>
+                                <div className="6u"><span className="image fit"><img src={pic09} alt="" /></span></div>                        
                             </div>
                         </div>
                         <div className="box alt">
                             <h3>Commercial</h3>
                             <div className="row 50% uniform">                   
-                                <div className="4u"><span className="image fit"><img src={pic08} alt="" /></span></div>
-                                <div className="4u"><span className="image fit"><img src={pic09} alt="" /></span></div>
-                                <div className="4u"><span className="image fit"><img src={pic10} alt="" /></span></div>
-                                <div className="4u"><span className="image fit"><img src={pic10} alt="" /></span></div>
-                                <div className="4u"><span className="image fit"><img src={pic08} alt="" /></span></div>
-                                <div className="4u"><span className="image fit"><img src={pic09} alt="" /></span></div>                        
+                                <div className="6u"><span className="image fit"><img src={pic08} alt="" /></span></div>
+                                <div className="6u"><span className="image fit"><img src={pic09} alt="" /></span></div>
+                                <div className="6u"><span className="image fit"><img src={pic10} alt="" /></span></div>
+                                <div className="6u"><span className="image fit"><img src={pic10} alt="" /></span></div>
+                                <div className="6u"><span className="image fit"><img src={pic08} alt="" /></span></div>
+                                <div className="6u"><span className="image fit"><img src={pic09} alt="" /></span></div>                        
                             </div>
                         </div>
                 </div>

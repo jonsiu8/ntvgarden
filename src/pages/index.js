@@ -3,12 +3,11 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import Banner from '../components/Banner'
 
-import pic01 from '../assets/images/pic01.jpg'
-import pic02 from '../assets/images/pic02.jpg'
-import pic03 from '../assets/images/pic03.jpg'
-import pic04 from '../assets/images/pic04.jpg'
-import pic05 from '../assets/images/pic05.jpg'
-import pic06 from '../assets/images/pic06.jpg'
+import pic01 from '../assets/images/landscapedesign.jpg'
+import pic02 from '../assets/images/hardscapedesign.jpg'
+import pic03 from '../assets/images/fountain.jpg'
+import pic04 from '../assets/images/consultation.jpg'
+
 
 class HomeIndex extends React.Component {
     render() {
@@ -54,23 +53,7 @@ class HomeIndex extends React.Component {
                                 <p>Contact us</p>
                             </header>
                             <Link to="/contact" className="link primary"></Link>
-                        </article>
-                        {/*
-                        <article style={{backgroundImage: `url(${pic05})`}}>
-                            <header className="major">
-                                <h3>Consequat</h3>
-                                <p>Ipsum dolor sit amet</p>
-                            </header>
-                            <Link to="/landing" className="link primary"></Link>
-                        </article>
-                        <article style={{backgroundImage: `url(${pic06})`}}>
-                            <header className="major">
-                                <h3>Etiam</h3>
-                                <p>Feugiat amet tempus</p>
-                            </header>
-                            <Link to="/landing" className="link primary"></Link>
-                        </article>
-                        */}
+                        </article>                       
                     </section>                
                 </div>
             </div>
